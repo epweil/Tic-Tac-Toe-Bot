@@ -342,6 +342,8 @@ public class game {
 			int q = 0;
 			Picture two = null;
 			while (q == 0) {
+				a = new int[3][3];
+				sim();
 				int[] b = new int[2];
 				btnStop.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -417,6 +419,7 @@ public class game {
 							a[aa[0]][aa[1]] = 1;
 
 							sim();
+							doing.sleep(500);
 							i = done();
 							doing.sleep(500);
 
@@ -443,7 +446,7 @@ public class game {
 
 							a[b[0]][b[1]] = 2;
 
-							sim();
+							sim();doing.sleep(500);
 							i = done();
 
 							doing.sleep(500);
@@ -504,12 +507,7 @@ public class game {
 				}
 				changes();
 
-				for (int u = 0; u < 3; u++) {
-					for (int uu = 0; uu < 3; uu++) {
-						a[u][uu] = 0;
-					}
-
-				}
+				
 				doing.suspend();
 			}
 		}
@@ -584,6 +582,10 @@ public class game {
 					boardss[y][yy].setText(symbol);
 				} else if (a[y][yy] == 2) {
 					boardss[y][yy].setText(symbol2);
+				
+				}
+				else {
+					boardss[y][yy].setText("");
 				}
 
 			}
